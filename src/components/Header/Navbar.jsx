@@ -6,8 +6,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     
     return (
-        <div className="px-4 py-5 lg:py-8 mx-auto md:px-24 lg:px-8 z-10">
-            <div className="container relative flex items-center justify-between mx-auto z-10">
+        <div className="px-4 py-5 lg:py-8 mx-auto w-full lg:container md:px-10 lg:px-8 z-10">
+            <div className="relative flex items-center justify-between mx-auto z-10">
                 <div className="flex items-center">
                     <Link
                         to="/"
