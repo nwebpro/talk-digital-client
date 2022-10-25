@@ -1,11 +1,36 @@
 import React, { useContext } from 'react'
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Profile = () => {
-    const { user } = useContext(AuthContext)
+    const { user, updatedUserProfile } = useContext(AuthContext)
+
+    const handleUpdateProfile = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const photoURL = form.photoURL.value
+        handleUpdateUserProfile(name, photoURL)
+        form.reset()
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updatedUserProfile(profile)
+            .then(() => {
+                toast.success('Profile Updated Successfully!', {autoClose: 500})
+            })
+            .catch(error => {
+                toast.error(error.message, {autoClose: 500})
+            })
+    }
+
     return (
         <div className='mx-auto lg:container px-5 py-10 lg:py-20'>
-            <div className="max-w-md mx-auto p-8 flex justify-center items-center sm:space-x-6 bg-white rounded-lg">
+            <div className="max-w-md mx-auto p-8 flex justify-center items-center sm:space-x-6 bg-white rounded-lg mb-5">
                 <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                     <img src={user?.photoURL} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
                 </div>
@@ -18,6 +43,33 @@ const Profile = () => {
                         <span className="dark:text-gray-400">{user?.email}</span>
                     </span>
                 </div>
+            </div>
+            <div className='max-w-md mx-auto p-8 flex flex-col justify-center items-center sm:space-x-6 bg-white rounded-lg'>
+                <h1 className="text-xl font-bold mb-3">Update your Profile</h1>
+                <form onSubmit={handleUpdateProfile} noValidate="" action="" className='w-full'>
+                    <input
+                        type="text"
+                        className="w-full rounded-lg border-theme-default border px-4 py-3 pr-12 text-base mb-2 focus:outline-none"
+                        placeholder="Updated your name!"
+                        name='name'
+                    />
+                    <input
+                        type="text"
+                        className="w-full rounded-lg border-theme-default border px-4 py-3 pr-12 text-base mb-2 focus:outline-none"
+                        placeholder="Updated your photoURL!"
+                        name='photoURL'
+                    />
+
+                    <div className="flex items-center justify-end">
+                        <button
+                            type="submit"
+                            className="ml-3 inline-block rounded-lg bg-theme-secondary px-5 py-3 text-base font-medium text-white"
+                        >
+                            Update Profile
+                        </button>
+                    </div>
+                </form>
+
             </div>
         </div>
     );

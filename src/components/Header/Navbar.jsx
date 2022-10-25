@@ -96,17 +96,17 @@ const Navbar = () => {
                     <ul className="items-center hidden space-x-8 lg:flex">
                         {
                             user?.uid ?
-                            <div class="dropdown inline-block relative">
+                            <div className="dropdown inline-block relative">
                                 <button>
-                                    <div class="mr-2 w-10 h-10 flex justify-center items-center rounded-full">
-                                        <img title={user?.displayName} src={user.photoURL} class="rounded-full" alt='User Pic' />
+                                    <div className="mr-2 w-10 h-10 flex justify-center items-center rounded-full">
+                                        <img title={user?.displayName} src={user.photoURL} className="rounded-full" alt='User Pic' />
                                     </div>
                                 </button>
-                                <ul class="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
-                                    <li class="mb-2">
+                                <ul className="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
+                                    <li className="mb-2">
                                         <Link to='/profile'>Your Profile</Link>
                                     </li>
-                                    <li class="">
+                                    <li className="">
                                         <button onClick={handleLogout}>Logout</button>
                                     </li>
                                 </ul>
@@ -128,18 +128,18 @@ const Navbar = () => {
                     <div className="flex items-center lg:hidden">
                     {
                         user?.uid &&
-                        <div class="dropdown inline-block relative">
+                        <div className="dropdown inline-block relative">
                             <button>
-                                <div class="mr-2 w-10 h-10 flex justify-center items-center rounded-full">
+                                <div className="mr-2 w-10 h-10 flex justify-center items-center rounded-full">
 
-                                    <img title={user?.displayName} src={user.photoURL} class="rounded-full" alt='User Pic' />
+                                    <img title={user?.displayName} src={user.photoURL} className="rounded-full" alt='User Pic' />
                                 </div>
                             </button>
-                            <ul class="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
-                                <li class="mb-2">
+                            <ul className="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
+                                <li className="mb-2">
                                     <Link to='/profile'>Your Profile</Link>
                                 </li>
-                                <li class="">
+                                <li className="">
                                     <button onClick={handleLogout}>Logout</button>
                                 </li>
                             </ul>
