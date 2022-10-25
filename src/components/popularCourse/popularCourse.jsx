@@ -55,8 +55,8 @@ const PopularCourse = ({ allCourses }) => {
             >
                 {
                     allCourses.map(course => (
-                        <SwiperSlide>
-                            <Course key={course?._id} course={course} />
+                        <SwiperSlide key={course?._id}>
+                            <Course course={course} />
                         </SwiperSlide>
                     ))
                 }
