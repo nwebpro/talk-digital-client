@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { HiArrowNarrowRight } from "react-icons/hi"
 import { Link, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { user, userLogout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        userLogout()
+            .then(toast.warning('User logged out!', {autoClose: '500'}))
+            .catch(error => (
+                toast.error(error.message, {autoClose: 500})
+            ))
+    }
     
     return (
         <header className='bg-white'>
@@ -82,16 +93,30 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <ul className="items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <Link
-                            to="/login"
-                            aria-label="Login"
-                            title="Login"
-                            className="font-normal text-lg leading-[22px] tracking-wide bg-theme-default text-white py-3 px-5 rounded transition-colors duration-200"
-                            >
-                            Login <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
-                            </Link>
-                        </li>
+                        {
+                            user?.uid ?
+                            <li>
+                                <button
+                                onClick={handleLogout}
+                                aria-label="Logout"
+                                title="Logout"
+                                className="font-normal text-lg leading-[22px] tracking-wide bg-theme-default text-white py-3 px-5 rounded transition-colors duration-200"
+                                >
+                                Logout <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
+                                </button>
+                            </li>
+                            :
+                            <li>
+                                <Link
+                                to="/login"
+                                aria-label="Login"
+                                title="Login"
+                                className="font-normal text-lg leading-[22px] tracking-wide bg-theme-default text-white py-3 px-5 rounded transition-colors duration-200"
+                                >
+                                Login <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
+                                </Link>
+                            </li>
+                        }
                     </ul>
                     <div className="lg:hidden">
                     <button
