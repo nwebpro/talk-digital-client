@@ -15,7 +15,7 @@ const BecomeAnInstructor = () => {
                     </div>
                     <form onSubmit={handleFreeTrial} className="mt-10 lg:mt-0 flex flex-col items-center w-full md:flex-row md:bg-white p-[5px] rounded-[60px] lg:w-1/3">
                             <input
-                                placeholder="Your email address"
+                                placeholder="Start trial"
                                 required=""
                                 type="email"
                                 className="flex-grow w-full h-12 px-6 rounded-full focus:outline-none mb-3 md:mr-2 md:mb-0"
