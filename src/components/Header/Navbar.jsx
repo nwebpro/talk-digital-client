@@ -104,7 +104,7 @@ const Navbar = () => {
                                 </button>
                                 <ul className="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
                                     <li className="mb-2">
-                                        <Link to='/profile'>Your Profile</Link>
+                                        <Link to='/profile'>User Profile</Link>
                                     </li>
                                     <li className="">
                                         <button onClick={handleLogout}>Logout</button>
@@ -137,7 +137,7 @@ const Navbar = () => {
                             </button>
                             <ul className="dropdown-menu absolute hidden bg-theme-default text-white rounded w-40 p-5 left-0 right-10">
                                 <li className="mb-2">
-                                    <Link to='/profile'>Your Profile</Link>
+                                    <Link to='/profile'>User Profile</Link>
                                 </li>
                                 <li className="">
                                     <button onClick={handleLogout}>Logout</button>

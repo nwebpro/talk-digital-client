@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import Root from "../layout/Root"
 import Blog from "../pages/Blog/Blog"
-import Category from "../pages/Category/Category"
 import CheckoutPage from "../pages/CheckoutPage/CheckoutPage"
 import CourseDetails from "../pages/CourseDetails/CourseDetails"
 import Courses from "../pages/Courses/Courses"
@@ -38,11 +37,6 @@ export const router = createBrowserRouter([
                 path: '/course-details/:courseId',
                 loader: ({ params }) => fetch(`https://talk-digital.vercel.app/course/${params.courseId}`),
                 element: <CourseDetails />
-            },
-            {
-                path: '/course-category/:catId',
-                loader: ({ params }) => fetch(`https://talk-digital.vercel.app/category/${params.catId}`),
-                element: <Category />
             },
             {
                 path: '/checkout/:courseId',

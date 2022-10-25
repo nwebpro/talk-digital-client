@@ -1,6 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
-import CourseCategory from '../../components/CourseCategory/CourseCategory';
+import { Link, useLoaderData } from 'react-router-dom'
 import Course from '../../components/PopularCourse/Course'
 
 const Courses = () => {
@@ -20,7 +19,16 @@ const Courses = () => {
                     </div>
                     <div className='col-span-12 order-1 md:order-2 md:col-span-4 '>
                         <div className='bg-white p-10 rounded'>
-                            <CourseCategory />
+                        <h2 className='text-heading-text text-xl lg:text-2xl font-bold mb-3'>Course Name</h2>
+                        <ul className='list-disc pl-8'>
+                            {
+                                allCourses.map(course => (
+                                    <li className='mb-2 text-base' key={course?._id}>
+                                        <Link to={`/course-details/${course?._id}`}>{course?.name}</Link>
+                                    </li>
+                                ))
+                            }
+                        </ul>
                         </div>
                     </div>
                 </div>
