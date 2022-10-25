@@ -7,10 +7,11 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Root />,
-        errorElement: <ErrorPage />, 
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
+                loader: () => fetch('https://talk-digital.vercel.app/courses'),
                 element: <Home />
             }
         ]
