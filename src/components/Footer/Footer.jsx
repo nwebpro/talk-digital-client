@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="flex justify-center pt-5 pb-5 border-t">
                 <p className="text-base text-body-text">
-                © Copyright 2022 Talk Digital. All rights reserved.
+                    Copyright © 2022 Talk Digital. All rights reserved.
                 </p>
             </div>
         </footer>
