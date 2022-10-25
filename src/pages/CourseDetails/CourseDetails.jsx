@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { HiStar } from 'react-icons/hi'
 import { FaCloudDownloadAlt, FaChessQueen } from 'react-icons/fa'
 import { Link, useLoaderData } from 'react-router-dom'
+import Pdf from "react-to-pdf"
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData()
     const {image_url, name, price, author, rating, short_desc, course_overview, description, _id} = courseDetails
+    const ref = createRef()
     return (
         <>
             <div className="bg-heading-text">
@@ -49,18 +51,20 @@ const CourseDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-12 md:col-span-7 bg-white p-5 md:p-7 lg:p-10 rounded-xl'>
-                        <h2 className='text-heading-text text-2xl font-semibold mb-3'>Course Overview</h2>
-                        <ul className='list-disc pl-8 mb-10'>
-                            {
-                                course_overview.map((overview, index) => (
-                                    <li className='text-lg text-body-text mb-1' key={index}>{overview}</li>
-                                ))
-                            }
-                        </ul>
-                        <h2 className='text-heading-text text-2xl font-semibold mb-3'>Description</h2>
-                        <p className='text-base text-body-text leading-7 text-justify mb-5'>{description}</p>
-                        <div className="flex gap-5 flex-col lg:flex-row">
+                    <div className='col-span-12 md:col-span-7 bg-white rounded-xl'>
+                        <div ref={ref} className='p-5 md:p-7 lg:p-10'>
+                            <h2 className='text-heading-text text-2xl font-semibold mb-3'>Course Overview</h2>
+                            <ul className='list-disc pl-8 mb-10'>
+                                {
+                                    course_overview.map((overview, index) => (
+                                        <li className='text-lg text-body-text mb-1' key={index}>{overview}</li>
+                                    ))
+                                }
+                            </ul>
+                            <h2 className='text-heading-text text-2xl font-semibold mb-3'>Description</h2>
+                            <p className='text-base text-body-text leading-7 mb-5'>{description}</p>
+                        </div>
+                        <div className="flex gap-5 flex-col lg:flex-row p-5 md:p-7 lg:p-10">
                             <Link
                             to={`/checkout/${_id}`}
                             aria-label="Get premium access"
@@ -69,13 +73,16 @@ const CourseDetails = () => {
                                 Get premium access.
                                 <FaChessQueen />
                             </Link>
-                            <button
+                            
+                            <Pdf targetRef={ref} filename="talk-digital-course-details.pdf">
+                                {({ toPdf }) => <button onClick={toPdf}
                             aria-label="Download"
                             className="flex justify-between items-center gap-2 font-medium text-white py-3 px-7 rounded transition-colors duration-200 bg-theme-secondary"
                             >
                                 Download
                                 <FaCloudDownloadAlt className='text-xl' />
-                            </button>
+                            </button>}
+                            </Pdf>
                         </div>
                     </div>
                 </div>
