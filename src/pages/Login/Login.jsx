@@ -41,6 +41,7 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result => {
             toast.success('Google Login Success!', {autoClose: 500})
+            navigate(from, {replace: true})
         })
         .error(error => {
             toast.error(error.message, {autoClose: 500})
@@ -51,6 +52,7 @@ const Login = () => {
         providerLogin(githubProvider)
         .then(result => {
             toast.success('Github Login Success!', {autoClose: 500})
+            navigate(from, {replace: true})
         })
         .error(error => {
             toast.error(error.message, {autoClose: 500})

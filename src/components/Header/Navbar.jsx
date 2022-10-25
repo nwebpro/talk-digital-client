@@ -258,14 +258,19 @@ const Navbar = () => {
                                                 </NavLink>
                                             </li>
                                             <li>
-                                                <Link
-                                                    to="/login"
-                                                    aria-label="Login"
-                                                    title="Login"
-                                                    className="font-normal text-base leading-[22px] tracking-wide bg-theme-default text-white py-3 px-5 rounded transition-colors duration-200"
-                                                    >
-                                                    Login <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
-                                                </Link>
+                                                {
+                                                    user?.uid ?
+                                                    <div className='hidden'></div>
+                                                     :
+                                                     <Link
+                                                        to="/login"
+                                                        aria-label="Login"
+                                                        title="Login"
+                                                        className="font-normal text-base leading-[22px] tracking-wide bg-theme-default text-white py-3 px-5 rounded transition-colors duration-200"
+                                                        >
+                                                        Login <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
+                                                    </Link>
+                                                }
                                             </li>
                                         </ul>
                                     </nav>

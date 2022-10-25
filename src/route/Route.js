@@ -7,6 +7,7 @@ import Courses from "../pages/Courses/Courses"
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import Home from "../pages/Home/Home"
 import Login from "../pages/Login/Login"
+import Profile from "../pages/Profile/Profile"
 import Register from "../pages/Register/Register"
 import PrivateRoute from "./PrivateRoute"
 
@@ -47,6 +48,14 @@ export const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <CheckoutPage />
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: '/profile',
+                element: (
+                    <PrivateRoute>
+                        <Profile />
                     </PrivateRoute>
                 )
             },

@@ -13,6 +13,5 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
   left: -110px;
-  top: 50px;
-  right: 0;
+  top: 42px;
 }

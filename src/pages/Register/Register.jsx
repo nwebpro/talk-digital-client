@@ -57,6 +57,7 @@ const Register = () => {
         providerLogin(googleProvider)
         .then(result => {
             toast.success('Google Login Success!', {autoClose: 500})
+            navigate('/')
         })
         .error(error => {
             toast.error(error.message, {autoClose: 500})
@@ -67,6 +68,7 @@ const Register = () => {
         providerLogin(githubProvider)
         .then(result => {
             toast.success('Github Login Success!', {autoClose: 500})
+            navigate('/')
         })
         .error(error => {
             toast.error(error.message, {autoClose: 500})
