@@ -1,9 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Course from './Course';
+import { Link } from 'react-router-dom'
+import Course from './Course'
+import { Swiper, SwiperSlide } from "swiper/react"
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination"
+import "swiper/css/navigation"
+import { Autoplay, Navigation } from "swiper"
 
 const PopularCourse = ({ allCourses }) => {
-    console.log(allCourses);
     return (
         <section className='mx-auto lg:container px-5 py-10 lg:py-20'>
             <div className='flex flex-col lg:flex-row justify-between items-center mb-10'>
@@ -21,13 +26,41 @@ const PopularCourse = ({ allCourses }) => {
                     </Link>
                 </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+            <Swiper
+                breakpoints={{
+                    "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    },
+                    "@0.75": {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    },
+                    "@1.00": {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                    },
+                }}
+                slidesPerView={3}
+                spaceBetween={30}
+                loop={true}
+                loopFillGroupWithBlank={true}
+                autoplay={{
+                    delay: 10000,
+                    disableOnInteraction: false,
+                }}
+                navigation={true}
+                modules={[Autoplay, Navigation]}
+                className="mySwiper"
+            >
                 {
                     allCourses.map(course => (
-                        <Course key={course?._id} course={course} />
+                        <SwiperSlide>
+                            <Course key={course?._id} course={course} />
+                        </SwiperSlide>
                     ))
                 }
-            </div>
+            </Swiper>
         </section>
     );
 };

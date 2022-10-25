@@ -1,11 +1,12 @@
 import React from 'react'
 import { HiStar } from 'react-icons/hi'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 
 const Course = ({ course }) => {
     const {image_url, name, rating, short_desc, _id, price} = course
     return (
-        <Link to='/' className='bg-white p-5 rounded-lg flex flex-col'>
+        <Link to='/' className='bg-white p-5 rounded-lg flex flex-col h-[560px]'>
             <img className='object-cover w-full rounded-lg mb-5' src={image_url} alt="" />
             <div>
                 <h3 className='text-heading-text text-lg mb-3 font-semibold'>{name}</h3>
