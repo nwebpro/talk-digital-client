@@ -4,7 +4,7 @@ const Instructor = () => {
     return (
         <section className='mx-auto lg:container px-5 py-10 lg:py-20'>
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                <h2 className="max-w-lg mb-6 tracking-tight sm:text-4xl md:mx-auto text-heading-text text-3xl md:text-4xl font-bold mb-5">
+                <h2 className="max-w-lg tracking-tight sm:text-4xl md:mx-auto text-heading-text text-3xl md:text-4xl font-bold mb-5">
                     Our Experienced Instructor
                 </h2>
                 <p className="text-base text-body-text md:text-lg">
