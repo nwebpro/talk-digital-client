@@ -6,6 +6,7 @@ import CourseDetails from "../pages/CourseDetails/CourseDetails"
 import Courses from "../pages/Courses/Courses"
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import Home from "../pages/Home/Home"
+import Login from "../pages/Login/Login"
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
                 path: '/checkout/:courseId',
                 loader: ({ params }) => fetch(`https://talk-digital.vercel.app/course/${params.courseId}`),
                 element: <CheckoutPage />
+            },
+            {
+                path: '/login',
+                element: <Login />
             }
         ]
     }
