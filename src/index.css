@@ -10,3 +10,9 @@ body {
   background-color: #F7F8FA;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+  left: -110px;
+  top: 50px;
+  right: 0;
+}
