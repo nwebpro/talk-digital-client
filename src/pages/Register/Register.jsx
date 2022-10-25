@@ -1,8 +1,54 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false)
+    const {createUser, updatedUserProfile, verifyEmail} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleUserCreate = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const photoURL = form.photoURL.value
+        const email = form.email.value
+        const password = form.password.value
+        console.log(name, photoURL, email, password)
+
+        createUser(email, password)
+            .then(result => {
+                form.reset();
+                navigate('/login');
+                handleUpdateUserProfile(name, photoURL);
+                handleEmailVerification()
+                toast.success('User Created! Please verify your email address.', {autoClose: 500})
+            })
+            .catch(error => {
+                toast.error(error.message, {autoClose: 500})
+            })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updatedUserProfile(profile)
+            .then(() => {})
+            .catch(error => {
+                toast.error(error.message, {autoClose: 500});
+            })
+    }
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => {})
+            .catch(error => {
+                toast.error(error.message, {autoClose: 500});
+            })
+    }
 
     const handleAccepted = e => {
         setAccepted(e.target.checked);
@@ -12,7 +58,7 @@ const Register = () => {
         <section className='h-screen flex items-center justify-center z-0'>
             <div className="w-full mx-auto max-w-md rounded-xl border border-theme-default p-11 my-24" data-aos='fade-up' data-aos-duration='1000'>
                 <h1 className="text-2xl font-bold text-center mb-10">Create Account</h1>
-                <form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleUserCreate} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="mb-1 text-sm">
                         <label htmlFor="name" className="block">Name</label>
                         <input type="name" name="name" placeholder="Enter your name!" className="w-full px-4 py-3 rounded-md border border-[#e2e1e1] text-heading-text focus:outline-theme-default focus:outline-1 text-sm" />

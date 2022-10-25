@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import Home from "../pages/Home/Home"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
+import PrivateRoute from "./PrivateRoute"
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +44,11 @@ export const router = createBrowserRouter([
             {
                 path: '/checkout/:courseId',
                 loader: ({ params }) => fetch(`https://talk-digital.vercel.app/course/${params.courseId}`),
-                element: <CheckoutPage />
+                element: (
+                    <PrivateRoute>
+                        <CheckoutPage />
+                    </PrivateRoute>
+                )
             },
             {
                 path: '/login',
