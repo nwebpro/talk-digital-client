@@ -62,7 +62,7 @@ const CourseDetails = () => {
                         <p className='text-base text-body-text leading-7 text-justify mb-5'>{description}</p>
                         <div className="flex gap-5 flex-col lg:flex-row">
                             <Link
-                            to={`/course-details/${_id}`}
+                            to={`/checkout/${_id}`}
                             aria-label="Get premium access"
                             className="flex justify-between items-center gap-2 font-medium text-white py-3 px-7 rounded transition-colors duration-200 bg-theme-default"
                             >

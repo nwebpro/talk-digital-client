@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
 
 const Course = ({ course }) => {
     const {image_url, name, rating, short_desc, _id, price} = course
+    // min-h-[560px]
     return (
-        <Link to={`/course-details/${_id}`} className='bg-white p-5 rounded-lg flex flex-col h-[560px]'>
+        <Link to={`/course-details/${_id}`} className='bg-white p-5 rounded-lg flex flex-col'>
             <img className='object-cover w-full rounded-lg mb-5' src={image_url} alt="" />
             <div>
                 <h3 className='text-heading-text text-lg mb-3 font-semibold'>{name}</h3>
