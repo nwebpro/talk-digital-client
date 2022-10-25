@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom"
 import Root from "../layout/Root"
+import Blog from "../pages/Blog/Blog"
 import Category from "../pages/Category/Category"
 import CheckoutPage from "../pages/CheckoutPage/CheckoutPage"
 import CourseDetails from "../pages/CourseDetails/CourseDetails"
 import Courses from "../pages/Courses/Courses"
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
+import FAQ from "../pages/FAQ/FAQ"
 import Home from "../pages/Home/Home"
 import Login from "../pages/Login/Login"
 import Profile from "../pages/Profile/Profile"
@@ -58,6 +60,14 @@ export const router = createBrowserRouter([
                         <Profile />
                     </PrivateRoute>
                 )
+            },
+            {
+                path: '/faq',
+                element: <FAQ />
+            },
+            {
+                path: '/blog',
+                element: <Blog />
             },
             {
                 path: '/login',
