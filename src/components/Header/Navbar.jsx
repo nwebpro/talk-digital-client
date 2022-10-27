@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [dark, setDark] = useState(false)
     const { user, userLogout } = useContext(AuthContext)
     console.log(user);
 
@@ -15,6 +16,10 @@ const Navbar = () => {
             .catch(error => (
                 toast.error(error.message, {autoClose: 500})
             ))
+    }
+
+    const handleDark = e => {
+        setDark(e.target.checked);
     }
     
     return (
@@ -91,6 +96,7 @@ const Navbar = () => {
                                     Blog
                                 </NavLink>
                             </li>
+                            
                         </ul>
                     </div>
                     <ul className="items-center hidden space-x-8 lg:flex">
@@ -122,8 +128,17 @@ const Navbar = () => {
                                 Login <HiArrowNarrowRight className='w-5 h-5 ml-2 inline-flex'   />
                                 </Link>
                             </li>
-                            
                         }
+                        <li>
+                        <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                            <span className='text-body-text text-base'>{dark ? 'Dark' : 'Light'}</span>
+                            <span className="relative">
+                                <input onClick={handleDark} id="Toggle2" type="checkbox" className="hidden peer" />
+                                <div className="w-10 h-4 rounded-full shadow bg-theme-secondary peer-checked:bg-theme-default"></div>
+                                <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-theme-default"></div>
+                            </span>
+                        </label>
+                        </li>
                     </ul>
                     <div className="flex items-center lg:hidden">
                     {
@@ -166,6 +181,14 @@ const Navbar = () => {
                             />
                             </svg>
                         </button>
+                        <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                            <span className='text-body-text text-base'>{dark ? 'Dark' : 'Light'}</span>
+                            <span className="relative">
+                                <input onClick={handleDark} id="Toggle2" type="checkbox" className="hidden peer" />
+                                <div className="w-10 h-4 rounded-full shadow bg-theme-secondary peer-checked:bg-theme-default"></div>
+                                <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-theme-default"></div>
+                            </span>
+                        </label>
                         {isMenuOpen && (
                             <div className="absolute top-0 left-0 w-full">
                                 <div className="p-5 bg-white border rounded shadow-sm">
