@@ -181,7 +181,7 @@ const Navbar = () => {
                             />
                             </svg>
                         </button>
-                        <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100">
+                        <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer pl-2">
                             <span className='text-body-text text-base'>{dark ? 'Dark' : 'Light'}</span>
                             <span className="relative">
                                 <input onClick={handleDark} id="Toggle2" type="checkbox" className="hidden peer" />

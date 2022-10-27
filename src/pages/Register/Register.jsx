@@ -84,8 +84,8 @@ const Register = () => {
                 <h1 className="text-2xl font-bold text-center mb-10">Create Account</h1>
                 <form onSubmit={handleUserCreate} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="mb-1 text-sm">
-                        <label htmlFor="name" className="block">Name</label>
-                        <input type="name" name="name" placeholder="Enter your name!" className="w-full px-4 py-3 rounded-md border border-[#e2e1e1] text-heading-text focus:outline-theme-default focus:outline-1 text-sm" />
+                        <label htmlFor="name" className="block">Full Name</label>
+                        <input type="name" name="name" placeholder="Enter your full name!" className="w-full px-4 py-3 rounded-md border border-[#e2e1e1] text-heading-text focus:outline-theme-default focus:outline-1 text-sm" />
                     </div>
                     <div className="mb-1 text-sm">
                         <label htmlFor="photoURL" className="block">Photo URL</label>
