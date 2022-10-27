@@ -60,7 +60,7 @@ const Login = () => {
     }
 
     return (
-        <section className='h-screen flex items-center justify-center z-0'>
+        <section className='flex items-center justify-center'>
             <div className="w-full mx-auto max-w-md rounded-xl border border-theme-default p-11 my-24" data-aos='fade-up' data-aos-duration='1000'>
                 <h1 className="text-2xl font-bold text-center mb-10">Login</h1>
                 <form onSubmit={handleUserLogin} noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
