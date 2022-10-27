@@ -53,6 +53,8 @@ const CourseDetails = () => {
                     </div>
                     <div className='col-span-12 md:col-span-7 bg-white rounded-xl'>
                         <div ref={ref} className='p-5 md:p-7 lg:p-10'>
+                            <h3 className='text-heading-text text-2xl font-semibold mb-3'>Course Name: {name}</h3>
+                            <p className='text-base text-body-text leading-7 mb-5'>{short_desc}</p>
                             <h2 className='text-heading-text text-2xl font-semibold mb-3'>Course Overview</h2>
                             <ul className='list-disc pl-8 mb-10'>
                                 {
