@@ -222,7 +222,7 @@ const Navbar = () => {
                                         <ul className="space-y-4">
                                             <li>
                                                 <NavLink
-                                                    to="/"
+                                                    to="/home"
                                                     aria-label="Home"
                                                     title="Home"
                                                     className={({ isActive }) => 
