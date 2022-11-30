@@ -6,6 +6,8 @@
 
 ## 🔥[Live Demo](https://talk-digital.web.app/)
 
+## [Server Side](https://github.com/nwebpro/talk-digital-server)
+
 # About the Project
 Talk Digital is a simple react Online Courses Platform website. I have created this as an assignment purpose on this website. I have used lots of libraries.
 
